@@ -1,5 +1,5 @@
 {
-  "name": "ithillel-16apr-pw",
+  "name": "playwright",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.44.1",
+    "@playwright/test": "^1.45.0",
     "@types/node": "^20.14.5"
   }
 }
