@@ -1,15 +1,15 @@
-import { Page } from 'playwright';
+import { Page } from '@playwright/test';
 
-class BasePage {
-  protected page: Page;
+export class BasePage {
+	protected readonly _page: Page;
+	protected readonly _url: string;
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+	constructor(page: Page, url: string) {
+		this._page = page;
+		this._url = url;
+	}
 
-  async goto(url: string): Promise<void> {
-    await this.page.goto(url);
-  }
+	async navigate() {
+		return this._page.goto(this._url);
+	}
 }
-
-export default BasePage;
