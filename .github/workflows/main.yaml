@@ -1,0 +1,27 @@
+name: MPA ALL Playwright Tests
+
+on: [push, pull_request]
+
+jobs:
+  playwright-tests:
+    runs-on: ubuntu-latest
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.39.0-jammy
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Playwright tests
+      run: npm test
+
+    - name: Archive results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: playwright-screenshots
+        path: playwright-report
