@@ -16,5 +16,8 @@ COPY . .
 # Встановлюємо браузери Playwright
 RUN npx playwright install --with-deps chromium
 
-# Вказуємо команду для запуску тестів Playwright
-CMD ["npx", "playwright", "test"]
+# Встановлюємо xvfb
+RUN apt-get update && apt-get install -y xvfb
+
+# Вказуємо команду для запуску тестів Playwright з xvfb
+CMD ["xvfb-run", "npx", "playwright", "test"]
