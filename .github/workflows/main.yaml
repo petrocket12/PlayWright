@@ -10,16 +10,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Docker
-      uses: actions/setup-docker@v1
-
     - name: Build Docker image
-      run: |
-        docker build -t my-playwright-container .
+      run: docker build -t my-playwright-container .
 
     - name: Run Playwright tests
-      run: |
-        docker run --rm my-playwright-container
+      run: docker run --rm my-playwright-container
 
     - name: Archive results
       if: always()
